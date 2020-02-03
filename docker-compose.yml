@@ -1,0 +1,15 @@
+version: '3'
+services:
+    redis:
+        image: redis:alpine
+    crawler:
+        image: crawler
+        build: ./
+        environment:
+            - url=https://davegill.io
+            - redis_addr=redis:6379
+            - concurrency=1
+        deploy:
+            replicas: 5
+        depends_on:
+            - redis
