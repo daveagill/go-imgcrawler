@@ -9,7 +9,5 @@ services:
             - url=https://davegill.io
             - redis_addr=redis:6379
             - concurrency=1
-        deploy:
-            replicas: 5
         depends_on:
             - redis
